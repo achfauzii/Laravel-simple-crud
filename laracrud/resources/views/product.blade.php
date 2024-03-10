@@ -25,7 +25,7 @@
                 </thead>
                 <tbody>
                     
-                        
+                    {{-- looping data --}}
                       @foreach ($data as $product)
            
                          <tr>
