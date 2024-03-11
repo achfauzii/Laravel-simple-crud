@@ -10,20 +10,30 @@
 <body>
     <center>
         <h1>Add Product</h1>
+     
         <div class="container">
             <form action="{{ url('/add_product') }}" method="Post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-4 ">
                     <label for="" class="form-label">Product Title</label>
                     <input class="form-control" type="text" name="title" id="title">
+                    @error('title')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-4">
                     <label for="" class="form-label">Product Description</label>
                     <textarea class="form-control" name="description" id="" ></textarea>
+                    @error('description')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-4">
                     <label for="" class="form-label">Product Image</label>
                     <input  class="form-control"type="file" name="image">
+                    @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="">
                     <input  class="btn btn-primary" type="submit" value="Add Product">

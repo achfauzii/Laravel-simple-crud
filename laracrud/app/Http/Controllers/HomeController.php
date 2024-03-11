@@ -12,6 +12,18 @@ class HomeController extends Controller
 
     public function add_product (Request $request){
         
+        $request->validate([
+            'title'=> 'required | min:6 | unique:products',
+            'description'=> 'required | max : 30',
+            'image' =>'required | image | mimes :jpg,png,jpeg| max:2048'
+        ],
+        [
+            'title.required' => 'title is required bla bla bla',
+            'title.min'=> 'title harus lebih dari 6',
+            'description.required' => 'description is required bla bla bla'
+        ]
+
+    );
         $data = new Product ;
 
         $data -> title = $request->title;
